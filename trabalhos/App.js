@@ -1,155 +1,132 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 export default function App() {
   return (
-    <SafeAreaView style={estilos.container}>
-      
-      <View style={estilos.barraSuperior}>
-        <Text style={estilos.titulo}>Quadro de Tarefas da Semana</Text>
-        <Text style={estilos.subtitulo}>Faça suas atividades de forma dinamica</Text>
-      </View>
-
-      <ScrollView 
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        style={estilos.quadro}
-        contentContainerStyle={estilos.quadroContent}
-      >
-
-        <View style={estilos.coluna}>
-          <Text style={estilos.tituloColuna}>A Fazer</Text>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 1:</Text>
-            <Text style={estilos.descricaoCartao}>Conferir sistema de roteamento</Text>
-          </View>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 2:</Text>
-            <Text style={estilos.descricaoCartao}>Testar o resfriamento </Text>
-          </View>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 3:</Text>
-            <Text style={estilos.descricaoCartao}>Testar o código criado</Text>
+    <SafeAreaView style={estilos.tudo}>
+      <ScrollView style={estilos.descer}>
+        <View style={estilos.cabeca}>
+          <Image source={{ uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Cy_ZBke5HbdeeUm4tdTqIyhXNmrr8WHMyw& s' }} style={estilos.circulo}/>
+          <View>
+            <Text style={estilos.titulo}>Olá, Estudante</Text>
+            <Text style={estilos.textosf}>Bem-vindo ao seu painel</Text>
           </View>
         </View>
-
-
-        <View style={estilos.coluna}>
-          <Text style={estilos.tituloColuna}>Em Progresso</Text>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 1:</Text>
-            <Text style={estilos.descricaoCartao}>Configurar os computadores</Text>
+        <Text style={estilos.secao}>Menu</Text>
+        <View style={estilos.botoes}>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>NOTAS</Text>
           </View>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 2:</Text>
-            <Text style={estilos.descricaoCartao}>Relatório pendente (URGENTE)</Text>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>AULAS</Text>
+          </View>
+          <View style={estilos.botao}>
+            <Text style={estilos.textoBotao}>AVISOS</Text>
           </View>
         </View>
+        <Text style={estilos.secao}>Próximas atividades</Text>
+        <View style={estilos.partes}>
+          <Text style={estilos.textosf}>Trabalhos </Text>
+          <Text>Matematica: Entrega: 03/08</Text>
+        </View>
+        <View style={estilos.partes}>
+          <Text style={estilos.textosf} >Provas </Text>
+          <Text>Portugues: Data: 11/06</Text>
+        </View>
+        <View style={estilos.partes}>
 
-
-        <View style={estilos.coluna}>
-          <Text style={estilos.tituloColuna}>Concluído</Text>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 1:</Text>
-            <Text style={estilos.descricaoCartao}>Limpar o servidor</Text>
-          </View>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 2:</Text>
-            <Text style={estilos.descricaoCartao}>Trocar cabos do servidor</Text>
-          </View>
-          
-          <View style={estilos.cartao}>
-            <Text style={estilos.tituloCartao}>Tarefa 3:</Text>
-            <Text style={estilos.descricaoCartao}>Comemorar o aniver do chefe</Text>
+          <Text style={estilos.textosf}>Disertação</Text>
+          <Text>História: Entrega: 14/08</Text>
+        </View>
+        <View style={estilos.partes}>
+          <Text style={estilos.textosf}>Estrega Final</Text>
+          <Text>Ingês: Entrega: 23/12</Text>
+        </View>
+        <View style={estilos.partes}>
+          <Text style={estilos.textosf}>Atividade da Semana</Text>
+          <Text>Ciências: Entrega: 12/06</Text>
+        </View>
+        <Text style={estilos.secao}>Chamada para ação</Text>
+        <View style={estilos.partes}>
+          <Text>Adquira uma nova oportunidade de aprender!</Text>
+          <View style={estilos.botaofinal}>
+            <Text style={estilos.textoBotao}>COMPRAR CURSO</Text>
           </View>
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
 }
-      
-
 const estilos = StyleSheet.create({
-  container: {
+  tudo: {
     flex: 1,
-    backgroundColor: '#fff7ed', 
+    backgroundColor: '#f3e6fa',
   },
-
-  barraSuperior: {
-    backgroundColor: '#faa661ff', 
-    padding: 10,
-    paddingTop: 12,
+  descer: {
+    padding: 20,
   },
-
   titulo: {
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-    marginBottom: 10,
-    color: '#fff7ed',
+    marginBottom: 5,
+    color: '#7c3aed',
   },
-
-  subtitulo: {
+  textosf: {
     fontSize: 15,
-    textAlign: 'center',
-    color: '#fff7ed', 
-  },
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#0d0718ff',
 
-  quadro: {
-    flex: 1,
-    paddingVertical: 30,
   },
-
-  quadroContent: {
-    paddingHorizontal: 30,
+  cabeca: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 30,
+    gap: 15,
   },
-
-  coluna: {
-    width: 300,
-    backgroundColor: '#ffe4b5', 
-    borderRadius: 20,
-    padding: 15,
-    marginRight: 30,
-    height: '90%',
+  circulo: {
+    width: 70,
+    height: 70,
+    backgroundColor: '#c4b5fd',
+    borderRadius: 35,
+    borderWidth: 2,
   },
-
-  tituloColuna: {
+  secao: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#d97706',
-    marginBottom: 20,
-    textAlign: 'center',
-    paddingBottom: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: '#fb923c', 
-  },
-
-  cartao: {
-    backgroundColor: '#fffaf0', 
-    borderRadius: 5,
-    padding: 10,
+    marginTop: 20,
     marginBottom: 10,
+    color: '#7c3aed',
   },
-
-  tituloCartao: {
-    fontSize: 16,
+  botoes: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  botao: {
+    backgroundColor: '#a78bfa',
+    padding: 10,
+    flex: 1,
+    alignItems: 'center',
+    borderRadius: 5,
+  },
+  botaofinal: {
+    backgroundColor: '#a78bfa',
+    padding: 10,
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 10,
+    borderRadius: 30,
+  },
+  textoBotao: {
+    color: 'white',
     fontWeight: 'bold',
-    color: '#ea580c', 
-    marginBottom: 5,
   },
+  partes: {
+    backgroundColor: 'white',
+    padding: 15,
 
-  descricaoCartao: {
-    fontSize: 14,
-    color: '#d97706', 
+    marginBottom: 20,
+    borderRadius: 8,
   },
 });
